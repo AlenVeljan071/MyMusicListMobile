@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:fRating="clr-namespace:Rating;assembly=Rating"
+             x:Class="MyMusicListMobile.Pages.EditSongPage"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White">
+            <StackLayout Orientation="Horizontal">
+                <Image Source="leftarrow"
+                       HeightRequest="40"
+                       WidthRequest="40"
+                       Margin="20"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Start">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="TapBack" Tapped="TapBack_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Source="Note.jpg"
+                   HorizontalOptions="EndAndExpand"
+                   HeightRequest="200" />
+            </StackLayout>
+            <SearchBar Placeholder="Search song..." 
+                               HeightRequest="100"
+                               WidthRequest="200"
+                               HorizontalOptions="CenterAndExpand"
+                               x:Name="SearchBarSong"
+                               SearchButtonPressed="SearchBarSong_SearchButtonPressed"/>
+            <StackLayout Spacing="5" HorizontalOptions="Center">
+                <Label x:Name="LblSongName" TextColor="#2C2C2C" FontAttributes="Bold" FontSize="40"/>
+                <Label x:Name="LblArtist" FontAttributes="Bold" FontSize="30" TextColor="Red"/>
+            </StackLayout>
+            <Label Text="Change Rating and Favorite"
+                   FontAttributes="Bold"
+                   FontSize="Title"
+                   TextColor="#2C2C2C"
+                   Margin="20"
+                   HorizontalOptions="Center"/>
+            <Label Text="Song Rating"
+                   Margin="20,10,20,0"
+                   HorizontalOptions="Center" />
+            <fRating:RatingBar x:Name="Rating" 
+                               HorizontalOptions="Center" 
+                               ImageWidth="30" ImageHeight="30"
+                               FlowDirection="LeftToRight"
+                               EmptyStarImage="emptystar" 
+                               FillStarImage="fillstar" 
+                                >
+            </fRating:RatingBar>
+            <Label Text="Change Favorite"
+                    HorizontalOptions="Center"
+                    Margin="20,20,20,0"/>
+            <CheckBox 
+                   Margin="20,0,20,10"
+                   x:Name="EntIsFavorite"
+                   HorizontalOptions="Center" 
+                   Color="Black"
+                    />
+            <Grid Margin="20,0,20,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5.5*" />
+                    <ColumnDefinition Width="4.5*" />
+                </Grid.ColumnDefinitions>
+                <Frame BackgroundColor="Black"
+                       Grid.Column="1"
+                       Padding="15"
+                       CornerRadius="35">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Update Song"
+                               HorizontalOptions="EndAndExpand"
+                               FontSize="Medium"
+                               VerticalOptions="Center"
+                               TextColor="White" />
+                        <Image Source="rightarrow.png"
+                               HorizontalOptions="CenterAndExpand"
+                               HeightRequest="30" />
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="TapSignup" Tapped="TapSignup_Tapped"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
