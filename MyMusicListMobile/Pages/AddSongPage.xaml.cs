@@ -33,25 +33,27 @@ namespace MyMusicListMobile.Pages
         }
         private async void TapSignup_Tapped(object sender, EventArgs e)
         {
-            var song = new Song()
-            {
-                CategoryId = selectedCategory.CategoryId,
-                SongName = EntName.Text,
-                Artist = EntArtist.Text,
-                Url = EntUrl.Text,
-                IsAFavorite = EntIsFavorite.IsChecked,
-                SongRating = Rating.SelectedStarValue,
-            };
-            var response = await ApiService.AddSong(song);
-            if (response == true)
-            {
-                await DisplayAlert("", "Your song  is Added", "Ok");
-                Application.Current.MainPage = new NavigationPage(new HomePage());
-            }
-            else
-            {
-                await DisplayAlert("Oops", "Something went wrong", "Cancel");
-            }
+                var song = new Song()
+                {
+                    CategoryId = selectedCategory.CategoryId,
+                    SongName = EntName.Text,
+                    Artist = EntArtist.Text,
+                    Url = EntUrl.Text,
+                    IsAFavorite = EntIsFavorite.IsChecked,
+                    SongRating = Rating.SelectedStarValue,
+                };
+                var response = await ApiService.AddSong(song);
+                if (response == true)
+                {
+                    await DisplayAlert("", "Your song  is Added", "Ok");
+                    Application.Current.MainPage = new NavigationPage(new HomePage());
+                }
+                else
+                {
+                    await DisplayAlert("Oops", "Something went wrong, make sure you have entered correctly", "Cancel");
+                }
+            
+            
         }
         private void comboCat_SelectedIndexChanged(object sender, EventArgs e)
         {
