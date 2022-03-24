@@ -4,6 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             xmlns:fRating="clr-namespace:Rating;assembly=Rating"
              x:Class="MyMusicListMobile.Pages.SongsPage">
     <ContentPage.Content>
         <StackLayout>
@@ -54,7 +55,14 @@
                                            HeightRequest="120"/>
                                     <Label TextColor="#2C2C2C" FontAttributes="Bold" FontSize="25" Text="{Binding SongName}" />
                                     <Label TextColor="Red" Text="{Binding Artist}" />
-                                    <Label TextColor="Green" Text="{Binding SongRating}" />
+                                    <fRating:RatingBar x:Name="Rating" 
+                                              SelectedStarValue="{Binding SongRating}"
+                                              HorizontalOptions="Center" 
+                                              IsEnabled="False"
+                                              ImageWidth="25" ImageHeight="25"
+                                              EmptyStarImage="emptystar" 
+                                              FillStarImage="fillstar" >
+                                    </fRating:RatingBar>
                                 </StackLayout>
                             </Frame>
                         </StackLayout>
