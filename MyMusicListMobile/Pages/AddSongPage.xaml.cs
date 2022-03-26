@@ -53,7 +53,6 @@ namespace MyMusicListMobile.Pages
                     await DisplayAlert("Oops", "Something went wrong, make sure you have entered correctly", "Cancel");
                 }
             
-            
         }
         private void comboCat_SelectedIndexChanged(object sender, EventArgs e)
         {

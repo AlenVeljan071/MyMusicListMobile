@@ -38,7 +38,7 @@ namespace MyMusicListMobile.Pages
             };
 
             var response = await ApiService.EditSong(spngUpdate);
-            if (response)
+            if (!response)
             {
                 await DisplayAlert("", "Your song updated succesfully", "Ok");
             }
